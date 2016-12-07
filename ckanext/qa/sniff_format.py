@@ -24,9 +24,6 @@ def sniff_file_format(filepath, log):
           'container': 'zip',
           }
     or None if it can\'t tell what it is.
-
-    Note, log is a logger, either a Celery one or a standard Python logging
-    one.
     '''
     format_ = None
     log.info('Sniffing file format of: %s', filepath)

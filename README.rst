@@ -101,8 +101,6 @@ NB You should upgrade ckanext-archiver and ckanext-qa from v0.1 to 2.x in one go
 
      python ckanext/qa/bin/migrate_task_status.py --write production.ini
 
-6. (Re)start the `paster celeryd2 run` processes described for ckanext-archiver.
-
 
 Configuration
 -------------
@@ -120,10 +118,6 @@ The default value is `resource_format_openness_scores.json`)
 
 Running
 --------
-
-First, make sure that Celery is running for the priority and bulk queues. This is explained in the ckanext-archiver README:
-
-[Using Archiver](https://github.com/ckan/ckanext-archiver#using-archiver)
 
 QA is performed when a dataset/resource is archived, or you can run it manually using a paster command::
 
@@ -173,4 +167,3 @@ The archiver info shows on the dataset/resource pages but the QA doesn't
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You need to ensure that in your ``ckan.plugins`` you have ``qa`` listed BEFORE ``archiver`` or else the template inheritance doesn't work and this happens.
-

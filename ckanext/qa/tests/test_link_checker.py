@@ -25,7 +25,6 @@ from ckanext.archiver.tasks import (update_package,
 
 from mock_remote_server import MockEchoTestServer
 
-# enable celery logging for when you run nosetests -s
 log = logging.getLogger('ckanext.archiver.tasks')
 def get_logger():
     return log

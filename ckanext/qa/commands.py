@@ -163,8 +163,7 @@ class QACommand(p.toolkit.CkanCommand):
         self.log.info('Queue: %s', self.options.queue)
         for package in packages:
             lib.create_qa_update_package_task(package, self.options.queue)
-            self.log.info('Queuing dataset %s (%s resources)',
-                          package.name, len(package.resources))
+            #self.log.info('Queuing dataset %s (%s resources)',package.name, len(package.resources))
 
         for resource in resources:
             package = resource.resource_group.package

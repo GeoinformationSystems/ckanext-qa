@@ -74,10 +74,13 @@ def munge_format_to_be_canonical(format_name):
 
 def create_qa_update_package_task(package, queue):
     from pylons import config
+    import tasks
     task_id = '%s-%s' % (package.name, make_uuid()[:4])
     ckan_ini_filepath = os.path.abspath(config.__file__)
     celery.send_task('qa.update_package', args=[ckan_ini_filepath, package.id],
                      task_id=task_id, queue=queue)
+    tasks.update_package(ckan_ini_filepath, package.id)
+
     log.debug('QA of package put into celery queue %s: %s',
               queue, package.name)
 
